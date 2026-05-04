@@ -1,0 +1,26 @@
+USE prec;
+CREATE TABLE employee (
+ emp_id INT PRIMARY KEY,
+ name VARCHAR(50),
+ salary INT,
+ dept VARCHAR(30)
+);
+
+INSERT INTO employee VALUES
+(1,'Rahul',25000,'HR'),
+(2,'Sneha',30000,'IT'),
+(3,'Amit',28000,'Sales');
+
+SELECT COUNT(*) FROM employee;
+SELECT SUM(salary) FROM employee;
+SELECT AVG(salary) FROM employee;
+SELECT MAX(salary) FROM employee;
+SELECT MIN(salary) FROM employee;
+SELECT dept, COUNT(*)
+FROM employee
+GROUP BY dept;
+
+SELECT dept, AVG(salary)
+FROM employee
+GROUP BY dept
+HAVING AVG(salary) > 25000;
