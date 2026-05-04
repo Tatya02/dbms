@@ -1,0 +1,22 @@
+use college;
+
+db.student.insertOne({
+ roll_no:1,
+ name:"Rahul",
+ age:20,
+ city:"Pune"
+})
+
+db.student.insertMany([
+{roll_no:2,name:"Sneha",age:21,city:"Mumbai"},
+{roll_no:3,name:"Amit",age:22,city:"Nashik"}
+])
+
+db.student.find()
+db.student.find({city:"Pune"})
+db.student.updateOne(
+{roll_no:1},
+{$set:{city:"Nagpur"}}
+)
+
+db.student.deleteOne({roll_no:3})
