@@ -1,0 +1,18 @@
+CREATE DATABASE prec;
+USE prec;
+
+CREATE TABLE student (
+roll_no INT PRIMARY KEY,
+name VARCHAR(50) NOT NULL,
+age INT CHECK(age>=18),
+city VARCHAR(30),
+email VARCHAR(50) UNIQUE
+);
+
+ALTER TABLE student ADD course VARCHAR(30);
+
+RENAME TABLE student TO students;
+
+TRUNCATE TABLE students;
+
+DROP TABLE students;
