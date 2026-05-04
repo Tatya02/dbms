@@ -1,4 +1,5 @@
-USE prec;
+create database sid;
+USE sid;
 CREATE TABLE employee (
  emp_id INT PRIMARY KEY,
  name VARCHAR(50),
@@ -23,9 +24,9 @@ SELECT * FROM employee WHERE dept='IT' AND salary>=30000;
 SELECT * FROM employee WHERE name LIKE 'R%';
 SELECT UPPER(name) FROM employee;
 
-GRANT SELECT, INSERT ON college.employee TO 'user1'@'localhost';
-
-REVOKE INSERT ON college.employee FROM 'user1'@'localhost';
+CREATE USER 'user1'@'localhost' IDENTIFIED BY 'pass123';
+GRANT SELECT, INSERT ON employee TO 'user1'@'localhost';
+REVOKE INSERT ON employee FROM 'user1'@'localhost';
 
 START TRANSACTION;
 
@@ -38,3 +39,5 @@ UPDATE employee SET salary=35000 WHERE emp_id=2;
 ROLLBACK TO sp1;
 
 COMMIT;
+
+
