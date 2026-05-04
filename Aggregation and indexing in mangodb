@@ -1,0 +1,16 @@
+db.student.aggregate([
+{$group:{
+ _id:"$city",
+ total:{$sum:1}
+}}
+])
+
+db.student.aggregate([
+{$group:{
+ _id:null,
+ avgAge:{$avg:"$age"}
+}}
+])
+
+db.student.createIndex({name:1})
+db.student.getIndexes()
