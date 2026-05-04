@@ -1,0 +1,29 @@
+USE prec;
+CREATE TABLE employee (
+ emp_id INT PRIMARY KEY,
+ name VARCHAR(50),
+ salary INT,
+ dept VARCHAR(30)
+);
+
+INSERT INTO employee VALUES
+(1,'Rahul',25000,'HR'),
+(2,'Sneha',30000,'IT'),
+(3,'Amit',28000,'Sales');
+
+DELIMITER //
+CREATE PROCEDURE showEmployee()
+BEGIN
+SELECT * FROM employee;
+
+END //
+CALL showEmployee() //
+CREATE FUNCTION bonus(sal INT)
+RETURNS INT
+DETERMINISTIC
+BEGIN
+ RETURN sal + 2000;
+END //
+
+SELECT name, bonus(salary) FROM employee //
+DELIMITER ;
